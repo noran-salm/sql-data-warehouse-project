@@ -1,3 +1,23 @@
+/*
+===============================================================================
+Stored Procedure: Load Bronze Layer (Source -> Bronze)
+===============================================================================
+Overview:
+    This stored procedure is responsible for populating the 'bronze' schema 
+    using external CSV files. It carries out the following steps:
+    - Clears all existing records in the bronze tables (TRUNCATE).
+    - Loads fresh data from CSV files into the bronze tables using `BULK INSERT`.
+
+Parameters:
+    None.
+    The procedure does not take any input parameters and does not return values.
+
+Execution Example:
+    EXEC bronze.load_bronze;
+===============================================================================
+*/
+
+
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
     DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
